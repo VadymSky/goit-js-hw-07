@@ -1,32 +1,17 @@
-class StringBuilder {
-  #value;
+// Знаходимо елементи
+const input = document.querySelector('#name-input');
+const output = document.querySelector('#name-output');
 
-  constructor(initialValue) {
-    this.#value = initialValue;
+// Слухаємо подію input (коли користувач вводить текст)
+input.addEventListener('input', () => {
+  // Беремо значення і прибираємо пробіли по краях
+  const userName = input.value.trim();
+
+  // Якщо після очищення рядок пустий, ставимо "Anonymous"
+  if (userName === '') {
+    output.textContent = 'Anonymous';
+  } else {
+    output.textContent = userName;
   }
-
-  getValue() {
-    return this.#value;
-  }
-
-  padEnd(str) {
-    this.#value += str;
-  }
-
-  padStart(str) {
-    this.#value = str + this.#value;
-  }
-
-  padBoth(str) {
-    this.#value = str + this.#value + str;
-  }
-}
-
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
+  console.log(userName);
+});
