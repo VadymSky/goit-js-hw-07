@@ -9,7 +9,7 @@ loginForm.addEventListener("submit", event => {
         alert('All form fields must be filled in');
         return;
     }
-    let formObject = {
+    const formObject = {
         userEmail: email,
         userPassword: password
     };
